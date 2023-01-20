@@ -6,17 +6,22 @@ import 'package:walkmehome/pages/navbar.dart';
 import '../components/my_textfield.dart';
 import '../components/my_button.dart';
 
-class LoginPage extends StatelessWidget {
-  LoginPage({super.key});
+class LoginPage extends StatefulWidget {
+  const LoginPage({super.key});
 
+  @override
+  State<LoginPage> createState() => LoginPageState();
+}
+
+class LoginPageState extends State<LoginPage> {
   // text editing controllers
   final usernameController = TextEditingController();
   final passwordController = TextEditingController();
 
   // sign user in method
-  void signUserIn() {
-    // Navigator.of(context)
-    //     .push(MaterialPageRoute(builder: (context) => const MyNavBarPage()));
+  signUserIn() {
+    Navigator.of(context)
+        .push(MaterialPageRoute(builder: (context) => const MyNavBarPage()));
   }
 
   @override
