@@ -5,7 +5,7 @@ import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:walkmehome/pages/maps.dart';
 import 'package:walkmehome/pages/settings.dart';
 
-import 'pages/friends.dart';
+import 'friends.dart';
 
 class MyNavBarPage extends StatefulWidget {
   const MyNavBarPage({super.key});
@@ -24,8 +24,8 @@ class MyNavBarPageState extends State<MyNavBarPage> {
   }
 
   final List<Widget> _pages = [
-    FriendsPage(),
     MapsPage(),
+    FriendsPage(),
     SettingsPage(),
   ];
 
