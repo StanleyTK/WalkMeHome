@@ -1,11 +1,15 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 
 import 'package:flutter/material.dart';
 
-class FriendsPage extends StatelessWidget {
+class FriendsPage extends StatefulWidget {
   const FriendsPage({super.key});
 
-  // This widget is the root of your application.
+  @override
+  State<FriendsPage> createState() => FriendsPageState();
+}
+
+class FriendsPageState extends State<FriendsPage> {
   @override
   Widget build(BuildContext context) {
     return Center(

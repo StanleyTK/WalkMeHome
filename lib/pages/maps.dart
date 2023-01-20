@@ -1,11 +1,15 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 
 import 'package:flutter/material.dart';
 
-class MapsPage extends StatelessWidget {
+class MapsPage extends StatefulWidget {
   const MapsPage({super.key});
 
-  // This widget is the root of your application.
+  @override
+  State<MapsPage> createState() => MapsPageState();
+}
+
+class MapsPageState extends State<MapsPage> {
   @override
   Widget build(BuildContext context) {
     return Center(
