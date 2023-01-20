@@ -25,6 +25,7 @@ class MyMapsPageState extends State<MyMapsPage> {
         ),
       ),
       bottomNavigationBar: GNav(
+        selectedIndex: 0,
         backgroundColor: Colors.black,
         color: Colors.white,
         activeColor: Colors.white,

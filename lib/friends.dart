@@ -24,6 +24,7 @@ class MyFriendsPageState extends State<MyFriendsPage> {
         ),
       ),
       bottomNavigationBar: GNav(
+        selectedIndex: 1,
         backgroundColor: Colors.black,
         color: Colors.white,
         activeColor: Colors.white,

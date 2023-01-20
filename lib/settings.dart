@@ -26,6 +26,7 @@ class MySettingsPageState extends State<MySettingsPage> {
         ),
       ),
       bottomNavigationBar: GNav(
+        selectedIndex: 2,
         backgroundColor: Colors.black,
         color: Colors.white,
         activeColor: Colors.white,
