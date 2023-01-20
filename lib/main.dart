@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'maps.dart';
+import 'navbar.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyMapsPage(),
+      home: const MyNavBarPage(),
     );
   }
 }
