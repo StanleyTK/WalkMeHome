@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:walkmehome/pages/login.dart';
-import 'package:walkmehome/pages/navbar.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +17,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       // Comment Login Page and uncomment navbar page
-      home: LoginPage(),
+      home: const LoginPage(),
       // home: const MyNavBarPage()
     );
   }

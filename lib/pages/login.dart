@@ -19,6 +19,7 @@ class LoginPageState extends State<LoginPage> {
   final passwordController = TextEditingController();
 
   // sign user in method
+  // This is where you check if the user credentials is correct or not
   signUserIn() {
     Navigator.of(context)
         .push(MaterialPageRoute(builder: (context) => const MyNavBarPage()));
