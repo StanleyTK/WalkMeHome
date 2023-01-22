@@ -1,4 +1,7 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:settings_ui/settings_ui.dart';
 
 // ignore: must_be_immutable
@@ -14,6 +17,18 @@ class userInfo extends StatefulWidget {
 }
 
 class userInfoState extends State<userInfo> {
+  List<String> _items = [];
+
+  // Fetch content from the json file
+  Future<void> readJson() async {
+    final String response = await rootBundle.loadString('lib/data.json');
+    final data = await json.decode(response);
+
+    setState(() {
+      _items = data;
+    });
+  }
+
   String _name = "";
 
   userInfoState(String name) {
@@ -41,12 +56,12 @@ class userInfoState extends State<userInfo> {
         body: SettingsList(
           sections: [
             SettingsSection(
-              title: const Text('Common'),
+              title: const Text('User Profile'),
               tiles: <SettingsTile>[
                 SettingsTile.navigation(
                   leading: const Icon(Icons.person),
                   title: Text(_name),
-                  value: const Text('sample username'),
+                  value: Text(_items.toString()),
                 ),
                 SettingsTile.navigation(
                   leading: const Icon(Icons.travel_explore),

@@ -1,6 +1,10 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 
+import 'dart:convert';
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_map/flutter_map.dart';
 // ignore: depend_on_referenced_packages
 import 'package:latlong2/latlong.dart';
@@ -230,6 +234,19 @@ class MapsPageState extends State<MapsPage> {
   List<LatLng> route = [];
   bool routeInit = false;
 
+  List<String> _items = [];
+
+  // Fetch content from the json file
+  Future<void> readJson() async {
+    final String response = await rootBundle.loadString('lib/data.json');
+    final data = await json.decode(response);
+
+    setState(() {
+      _items = data["users"];
+      log(_items.toString());
+    });
+  }
+
   List<LatLng> convertPLLtoLL(List<PointLatLng> pll) {
     List<LatLng> result = [];
     for (PointLatLng point in pll) {
@@ -302,7 +319,7 @@ class MapsPageState extends State<MapsPage> {
                 showSearch(
                     context: context,
                     // delegate to customize the search bar
-                    delegate: CustomSearchDelegate());
+                    delegate: CustomSearchDelegate(_items));
               },
               icon: const Icon(Icons.search),
             )
@@ -341,13 +358,6 @@ class MapsPageState extends State<MapsPage> {
 }
 
 class CustomSearchDelegate extends SearchDelegate {
-  // ignore: non_constant_identifier_names
-  UserInfo(BuildContext context, String name) {
-    Navigator.of(context)
-        .push(MaterialPageRoute(builder: (context) => userInfo(name)));
-  }
-
-  // Demo list to show querying
   List<String> searchTerms = [
     "Daniyal",
     "Stanley",
@@ -358,6 +368,18 @@ class CustomSearchDelegate extends SearchDelegate {
     "Drew",
     "Anurag"
   ];
+
+  CustomSearchDelegate(List<String> items) {
+    searchTerms = items;
+  }
+
+  // ignore: non_constant_identifier_names
+  UserInfo(BuildContext context, String name) {
+    Navigator.of(context)
+        .push(MaterialPageRoute(builder: (context) => userInfo(name)));
+  }
+
+  // Demo list to show querying
 
   // first overwrite to
   // clear the search text

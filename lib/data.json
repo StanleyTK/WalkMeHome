@@ -1,6 +1,6 @@
 {"users":  [
     {
-    "name": "Stanley Kim",
+    "name": "Stanley",
     "email": "stanleykim2003@gmail.com",
     "Completed_Trips": [
     ["40","-80"],
@@ -15,7 +15,7 @@
     "End_Time": "1/17/2023 14:02"
     },
     {
-    "name": "Anthony Tan",
+    "name": "Anthony",
     "email": "AnthonyTan3@gmail.com",
     "Completed_Trips": [
     ["12","-42"],
@@ -26,7 +26,7 @@
     "Start_Time" : "2/12/2023 10:12"
     },
     {
-    "name": "Daniel Xu",
+    "name": "Daniel",
     "email": "danielxu1234@gmail.com",
     "Completed_Trips": [
     ["40","-80"]],
@@ -35,7 +35,7 @@
     "Start_Time" : "1/2/2023 18:12"
     },
     {
-    "name": "Daniyal Bekaasdfasdflkj",
+    "name": "Daniyal",
     "email": "d1@gmail.com",
     "Completed_Trips": [
     ["40","-80"]],

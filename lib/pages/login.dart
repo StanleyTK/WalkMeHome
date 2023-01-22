@@ -3,9 +3,6 @@
 import 'package:flutter/material.dart';
 import 'package:walkmehome/pages/navbar.dart';
 
-import '../components/my_textfield.dart';
-import '../components/my_button.dart';
-
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 

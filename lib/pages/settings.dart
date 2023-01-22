@@ -25,7 +25,7 @@ class SettingsPageState extends State<SettingsPage> {
         body: SettingsList(
           sections: [
             SettingsSection(
-              title: const Text('Common'),
+              title: const Text('Settings'),
               tiles: <SettingsTile>[
                 SettingsTile.navigation(
                   leading: const Icon(Icons.person),

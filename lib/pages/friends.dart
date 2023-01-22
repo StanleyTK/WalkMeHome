@@ -15,6 +15,11 @@ class FriendsPageState extends State<FriendsPage> {
     Navigator.of(context, rootNavigator: true).pop();
   }
 
+  UserInfo(BuildContext context, String name) {
+    Navigator.of(context)
+        .push(MaterialPageRoute(builder: (context) => userInfo(name)));
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -38,26 +43,41 @@ class FriendsPageState extends State<FriendsPage> {
                   leading: const Icon(Icons.person),
                   title: const Text('Stanley'),
                   value: const Text('stanleykim2003'),
+                  onPressed: (context) {
+                    UserInfo(context, 'Stanley');
+                  },
                 ),
                 SettingsTile.navigation(
                   leading: const Icon(Icons.person),
                   title: const Text('Ariq'),
                   value: const Text('LukaMagic66'),
+                  onPressed: (context) {
+                    UserInfo(context, 'Ariq');
+                  },
                 ),
                 SettingsTile.navigation(
                   leading: const Icon(Icons.person),
                   title: const Text('Joshua Adith George'),
                   value: const Text('d2thefraud77'),
+                  onPressed: (context) {
+                    UserInfo(context, 'Joshua Adith George');
+                  },
                 ),
                 SettingsTile.navigation(
                   leading: const Icon(Icons.person),
                   title: const Text('Daniyal'),
                   value: const Text('adgasdasdfvcx'),
+                  onPressed: (context) {
+                    UserInfo(context, 'Daniyal');
+                  },
                 ),
                 SettingsTile.navigation(
                   leading: const Icon(Icons.person),
                   title: const Text('Daniel'),
                   value: const Text('LeagueOfLegends'),
+                  onPressed: (context) {
+                    UserInfo(context, 'Daniel');
+                  },
                 ),
               ],
             ),
