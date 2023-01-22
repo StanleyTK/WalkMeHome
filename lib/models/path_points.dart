@@ -1,9 +1,9 @@
 import 'package:latlong2/latlong.dart';
 
-class Route {
+class PathPoints {
   final List<LatLng> _path = [];
 
-  Route(List locs) {
+  PathPoints(List locs) {
     for (var pair in locs) {
       _path.add(LatLng(pair[0], pair[1]));
     }
@@ -11,6 +11,10 @@ class Route {
 
   List<LatLng> path() {
     return _path;
+  }
+
+  LatLng tail() {
+    return _path[0];
   }
 
   LatLng head() {
