@@ -234,19 +234,6 @@ class MapsPageState extends State<MapsPage> {
   List<LatLng> route = [];
   bool routeInit = false;
 
-  List<String> _items = [];
-
-  // Fetch content from the json file
-  Future<void> readJson() async {
-    final String response = await rootBundle.loadString('lib/data.json');
-    final data = await json.decode(response);
-
-    setState(() {
-      _items = data["users"];
-      log(_items.toString());
-    });
-  }
-
   List<LatLng> convertPLLtoLL(List<PointLatLng> pll) {
     List<LatLng> result = [];
     for (PointLatLng point in pll) {
@@ -319,7 +306,7 @@ class MapsPageState extends State<MapsPage> {
                 showSearch(
                     context: context,
                     // delegate to customize the search bar
-                    delegate: CustomSearchDelegate(_items));
+                    delegate: CustomSearchDelegate());
               },
               icon: const Icon(Icons.search),
             )
@@ -377,10 +364,6 @@ class CustomSearchDelegate extends SearchDelegate {
     "Anurag"
   ];
 
-  CustomSearchDelegate(List<String> items) {
-    searchTerms = items;
-  }
-
   // ignore: non_constant_identifier_names
   UserInfo(BuildContext context, String name) {
     Navigator.of(context)
@@ -430,7 +413,6 @@ class CustomSearchDelegate extends SearchDelegate {
 
         return ListTile(
           title: Text(result),
-          onTap: () => UserInfo(context, result),
         );
       },
     );

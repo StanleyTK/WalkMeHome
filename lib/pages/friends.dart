@@ -47,38 +47,6 @@ class FriendsPageState extends State<FriendsPage> {
                     UserInfo(context, 'Stanley');
                   },
                 ),
-                SettingsTile.navigation(
-                  leading: const Icon(Icons.person),
-                  title: const Text('Ariq'),
-                  value: const Text('LukaMagic66'),
-                  onPressed: (context) {
-                    UserInfo(context, 'Ariq');
-                  },
-                ),
-                SettingsTile.navigation(
-                  leading: const Icon(Icons.person),
-                  title: const Text('Joshua Adith George'),
-                  value: const Text('d2thefraud77'),
-                  onPressed: (context) {
-                    UserInfo(context, 'Joshua Adith George');
-                  },
-                ),
-                SettingsTile.navigation(
-                  leading: const Icon(Icons.person),
-                  title: const Text('Daniyal'),
-                  value: const Text('adgasdasdfvcx'),
-                  onPressed: (context) {
-                    UserInfo(context, 'Daniyal');
-                  },
-                ),
-                SettingsTile.navigation(
-                  leading: const Icon(Icons.person),
-                  title: const Text('Daniel'),
-                  value: const Text('LeagueOfLegends'),
-                  onPressed: (context) {
-                    UserInfo(context, 'Daniel');
-                  },
-                ),
               ],
             ),
           ],
@@ -148,7 +116,6 @@ class CustomSearchDelegate extends SearchDelegate {
 
         return ListTile(
           title: Text(result),
-          onTap: () => UserInfo(context, result),
         );
       },
     );
