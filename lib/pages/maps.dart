@@ -11,6 +11,8 @@ import 'package:latlong2/latlong.dart';
 import 'package:location/location.dart';
 import 'package:flutter_polyline_points/flutter_polyline_points.dart';
 import 'package:walkmehome/pages/userinfo.dart';
+import 'package:walkmehome/models/place.dart';
+import 'package:walkmehome/pages/locationpopup.dart';
 
 class MapsPage extends StatefulWidget {
   const MapsPage({super.key});
@@ -354,21 +356,16 @@ class MapsPageState extends State<MapsPage> {
 }
 
 class CustomSearchDelegate extends SearchDelegate {
-  List<String> searchTerms = [
-    "Daniyal",
-    "Stanley",
-    "Daniel",
-    "Anthony",
-    "Josh",
-    "Ariq",
-    "Drew",
-    "Anurag"
+  List<Place> searchTerms = [
+    Place("Wiley Dining Court", 40.4285, -86.9208),
+    Place("Wilmeth Active Learning Center", 40.4274, -86.9132),
+    Place("Lawson Computer Science Building", 40.4276, -86.9169),
   ];
 
   // ignore: non_constant_identifier_names
-  UserInfo(BuildContext context, String name) {
+  placeInfo(BuildContext context, Place place) {
     Navigator.of(context)
-        .push(MaterialPageRoute(builder: (context) => userInfo(name)));
+        .push(MaterialPageRoute(builder: (context) => PopPage(place)));
   }
 
   // Demo list to show querying
@@ -401,9 +398,9 @@ class CustomSearchDelegate extends SearchDelegate {
   // third overwrite to show query result
   @override
   Widget buildResults(BuildContext context) {
-    List<String> matchQuery = [];
+    List<Place> matchQuery = [];
     for (var item in searchTerms) {
-      if (item.toLowerCase().contains(query.toLowerCase())) {
+      if (item.name.toLowerCase().contains(query.toLowerCase())) {
         matchQuery.add(item);
       }
     }
@@ -413,7 +410,7 @@ class CustomSearchDelegate extends SearchDelegate {
         var result = matchQuery[index];
 
         return ListTile(
-          title: Text(result),
+          title: Text(result.name),
         );
       },
     );
@@ -423,9 +420,9 @@ class CustomSearchDelegate extends SearchDelegate {
   // querying process at the runtime
   @override
   Widget buildSuggestions(BuildContext context) {
-    List<String> matchQuery = [];
+    List<Place> matchQuery = [];
     for (var item in searchTerms) {
-      if (item.toLowerCase().contains(query.toLowerCase())) {
+      if (item.name.toLowerCase().contains(query.toLowerCase())) {
         matchQuery.add(item);
       }
     }
@@ -434,8 +431,8 @@ class CustomSearchDelegate extends SearchDelegate {
       itemBuilder: (context, index) {
         var result = matchQuery[index];
         return ListTile(
-          title: Text(result),
-          onTap: () => UserInfo(context, result),
+          title: Text(result.name),
+          onTap: () => placeInfo(context, result),
         );
       },
     );
