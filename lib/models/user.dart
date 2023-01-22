@@ -19,4 +19,5 @@ class User {
   String get name => _name;
   String get username => _username;
   String get email => _email;
+  PathPoints? get currentPath => _currentRoute;
 }

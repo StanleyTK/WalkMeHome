@@ -22,6 +22,7 @@ class UserInfoState extends State<userInfo> {
   String _name = "";
   String username = "";
   String email = "";
+  User? user;
 
   UserInfoState(String name) {
     _name = name;
@@ -29,6 +30,7 @@ class UserInfoState extends State<userInfo> {
       if (name == user.name) {
         username = user.username;
         email = user.email;
+        user = user;
       }
     }
   }
@@ -70,7 +72,7 @@ class UserInfoState extends State<userInfo> {
                 ),
                 SettingsTile.navigation(
                   leading: const Icon(Icons.remove),
-                  title: const Text('Remove Friends'),
+                  title: const Text('Remove Friend'),
                 ),
               ],
             ),
@@ -78,5 +80,40 @@ class UserInfoState extends State<userInfo> {
         ),
       ),
     );
+  }
+}
+
+class TileBuilder {
+  static List<SettingsTile> build(User user) {
+    List<SettingsTile> tiles = [
+      SettingsTile.navigation(
+        leading: const Icon(Icons.person),
+        title: Text(user.name),
+      ),
+      SettingsTile.navigation(
+        leading: const Icon(Icons.person),
+        title: Text(user.username),
+        value: Text(user.email),
+      ),
+      SettingsTile.navigation(
+        leading: const Icon(Icons.travel_explore),
+        title: const Text('Traveled Places'),
+      ),
+    ];
+
+    if (user.currentPath != null) {
+      tiles.add(SettingsTile.navigation(
+        leading: const Icon(Icons.directions),
+        title: const Text('Currently Traveling'),
+        value: const Text('Click to view route'),
+      ));
+    }
+
+    tiles.add(SettingsTile.navigation(
+      leading: const Icon(Icons.remove),
+      title: const Text('Remove Friend'),
+    ));
+
+    return tiles;
   }
 }

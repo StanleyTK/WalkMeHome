@@ -334,6 +334,7 @@ class MapsPageState extends State<MapsPage> {
                 Polyline(
                   points: route,
                   strokeWidth: 6,
+                  color: Colors.green,
                 ),
               ],
             ),
