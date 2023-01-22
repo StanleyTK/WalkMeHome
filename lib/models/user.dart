@@ -1,17 +1,17 @@
-import 'package:walkmehome/models/route.dart';
+import 'package:walkmehome/models/path_points.dart';
 
 class User {
   late String _name;
   late String _username;
   late String _email;
-  List<Route> _routes = [];
-  Route? _currentRoute;
+  List<PathPoints> _paths = [];
+  PathPoints? _currentRoute;
 
   User(var name, var username, var email, var routes, var currentRoute) {
     _name = name;
     _username = username;
     _email = email;
-    _routes = routes;
+    _paths = routes;
     _currentRoute = currentRoute;
   }
 }

@@ -13,10 +13,10 @@ class userInfo extends StatefulWidget {
   }
   @override
   // ignore: no_logic_in_create_state
-  State<userInfo> createState() => userInfoState(_name);
+  State<userInfo> createState() => UserInfoState(_name);
 }
 
-class userInfoState extends State<userInfo> {
+class UserInfoState extends State<userInfo> {
   List<String> _items = [];
 
   // Fetch content from the json file
@@ -31,7 +31,7 @@ class userInfoState extends State<userInfo> {
 
   String _name = "";
 
-  userInfoState(String name) {
+  UserInfoState(String name) {
     _name = name;
   }
 
