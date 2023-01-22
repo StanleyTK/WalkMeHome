@@ -350,6 +350,14 @@ class MapsPageState extends State<MapsPage> {
                 ),
               ],
             ),
+            MarkerLayer(
+              markers: [
+                Marker(
+                  point: LatLng(40.4273216, -86.9204065),
+                  builder: (context) => Icon(Icons.person_pin),
+                ),
+              ],
+            ),
           ],
         ),
       ),

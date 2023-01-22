@@ -28,11 +28,14 @@ class LoginPageState extends State<LoginPage> {
       body: Container(
         width: double.infinity,
         decoration: BoxDecoration(
-          gradient: LinearGradient(begin: Alignment.topCenter, colors: [
-            Colors.green[900]!,
-            Colors.green[800]!,
-            Colors.green[400]!
-          ]),
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            colors: [
+              Colors.green[900]!,
+              Colors.green[800]!,
+              Colors.green[400]!
+            ],
+          ),
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
