@@ -3,6 +3,8 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:settings_ui/settings_ui.dart';
+import 'package:walkmehome/DAOs/userDAO.dart';
+import 'package:walkmehome/models/user.dart';
 
 // ignore: must_be_immutable
 class userInfo extends StatefulWidget {
@@ -17,26 +19,21 @@ class userInfo extends StatefulWidget {
 }
 
 class UserInfoState extends State<userInfo> {
-  List<String> _items = [];
-
-  // Fetch content from the json file
-  Future<void> readJson() async {
-    final String response = await rootBundle.loadString('lib/data.json');
-    final data = await json.decode(response);
-
-    setState(() {
-      _items = data;
-    });
-  }
-
   String _name = "";
+  String username = "";
+  String email = "";
 
   UserInfoState(String name) {
     _name = name;
+    for (User user in UserDAO.friends) {
+      if (name == user.name) {
+        username = user.username;
+        email = user.email;
+      }
+    }
   }
 
   navigateToLogin(BuildContext context) {
-    // Navigator.of(context).push(MaterialPageRoute(builder: (context) => const LoginPage()));
     Navigator.of(context, rootNavigator: true).pop();
   }
 
@@ -61,7 +58,11 @@ class UserInfoState extends State<userInfo> {
                 SettingsTile.navigation(
                   leading: const Icon(Icons.person),
                   title: Text(_name),
-                  value: Text(_items.toString()),
+                ),
+                SettingsTile.navigation(
+                  leading: const Icon(Icons.person),
+                  title: Text(username),
+                  value: Text(email),
                 ),
                 SettingsTile.navigation(
                   leading: const Icon(Icons.travel_explore),
@@ -70,11 +71,6 @@ class UserInfoState extends State<userInfo> {
                 SettingsTile.navigation(
                   leading: const Icon(Icons.remove),
                   title: const Text('Remove Friends'),
-                ),
-                SettingsTile.navigation(
-                  leading: const Icon(Icons.language),
-                  title: const Text('Language'),
-                  value: const Text('English'),
                 ),
               ],
             ),

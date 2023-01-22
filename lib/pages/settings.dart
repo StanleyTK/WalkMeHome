@@ -41,11 +41,6 @@ class SettingsPageState extends State<SettingsPage> {
                   title: const Text('Remove Friends'),
                 ),
                 SettingsTile.navigation(
-                  leading: const Icon(Icons.language),
-                  title: const Text('Language'),
-                  value: const Text('English'),
-                ),
-                SettingsTile.navigation(
                   leading: const Icon(Icons.logout),
                   title: const Text('Sign Out'),
                   onPressed: navigateToLogin,
