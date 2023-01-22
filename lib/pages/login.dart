@@ -22,6 +22,7 @@ class LoginPageState extends State<LoginPage> {
         .push(MaterialPageRoute(builder: (context) => const MyNavBarPage()));
   }
 
+  bool isHidden = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -127,6 +128,7 @@ class LoginPageState extends State<LoginPage> {
                                       bottom: BorderSide(
                                           color: Colors.grey[200]!))),
                               child: const TextField(
+                                obscureText: true,
                                 decoration: InputDecoration(
                                     hintText: "Password",
                                     hintStyle: TextStyle(color: Colors.grey),
@@ -137,14 +139,20 @@ class LoginPageState extends State<LoginPage> {
                         ),
                       ),
                       const SizedBox(
-                        height: 40,
+                        height: 30,
                       ),
                       const Text(
-                        "Forgot Password?",
+                        "Don't have an account?",
                         style: TextStyle(color: Colors.grey),
                       ),
+                      Text(
+                        "Click here!",
+                        style: TextStyle(
+                            color: Colors.blue[500],
+                            decoration: TextDecoration.underline),
+                      ),
                       const SizedBox(
-                        height: 40,
+                        height: 30,
                       ),
                       InkWell(
                         onTap: signUserIn,
