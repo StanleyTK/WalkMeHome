@@ -93,7 +93,7 @@ class LoginPageState extends State<LoginPage> {
                   child: Column(
                     children: <Widget>[
                       const SizedBox(
-                        height: 60,
+                        height: 40,
                       ),
                       Container(
                         decoration: BoxDecoration(
@@ -165,7 +165,7 @@ class LoginPageState extends State<LoginPage> {
                         ),
                       ),
                       const SizedBox(
-                        height: 40,
+                        height: 50,
                       ),
                       const Text(
                         "Continue with social media",
