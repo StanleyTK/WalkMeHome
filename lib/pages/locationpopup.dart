@@ -25,9 +25,9 @@ class PopPageState extends State<PopPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.deepOrange[400],
+      backgroundColor: Colors.teal[400],
       appBar: AppBar(
-        title: const Text('D E S T I N A T I O N  I N F O'),
+        title: const Text('Destination Info'),
       ),
       body: Padding(
         //Put map here
@@ -53,7 +53,7 @@ class PopPageState extends State<PopPage> {
                       markers: [
                         Marker(
                           point: LatLng(_place.lat, _place.long),
-                          builder: (context) => const Icon(Icons.person_pin),
+                          builder: (context) => const Icon(Icons.place),
                         ),
                       ],
                     ),
@@ -67,15 +67,17 @@ class PopPageState extends State<PopPage> {
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Container(
-                      color: Colors.deepOrange[300],
+                      color: Colors.teal[300],
                       height: 120,
                       width: 2000,
                       child: Center(
                         child: Padding(
                           padding: EdgeInsets.all(8.0),
-                          child: Text(
-                            _place.name,
-                            style: TextStyle(fontSize: 24),
+                          child: Center(
+                            child: Text(
+                              _place.name,
+                              style: TextStyle(fontSize: 24),
+                            ),
                           ),
                         ),
                       ),
@@ -86,7 +88,7 @@ class PopPageState extends State<PopPage> {
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Container(
-                        color: Colors.purple[300],
+                        color: Color.fromARGB(255, 49, 116, 110),
                         height: 120,
                         width: 2000,
                         child: const Center(
@@ -95,7 +97,7 @@ class PopPageState extends State<PopPage> {
                             child: Text(
                               'Start Trip',
                               style:
-                                  TextStyle(fontSize: 24, color: Colors.black),
+                                  TextStyle(fontSize: 24, color: Colors.white),
                             ),
                           ),
                         ),
