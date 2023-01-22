@@ -32,6 +32,11 @@ class userInfoState extends State<userInfo> {
         appBar: AppBar(
           title: Text("$_name's Information"),
           backgroundColor: Colors.grey[700],
+          leading: IconButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              icon: const Icon(Icons.arrow_back_ios)),
         ),
         body: SettingsList(
           sections: [
