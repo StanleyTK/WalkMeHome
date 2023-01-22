@@ -1,14 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:settings_ui/settings_ui.dart';
 
-class SettingsPage extends StatefulWidget {
-  const SettingsPage({super.key});
+// ignore: must_be_immutable
+class userInfo extends StatefulWidget {
+  String _name = "";
 
+  userInfo(String name, {super.key}) {
+    _name = name;
+  }
   @override
-  State<SettingsPage> createState() => SettingsPageState();
+  // ignore: no_logic_in_create_state
+  State<userInfo> createState() => userInfoState(_name);
 }
 
-class SettingsPageState extends State<SettingsPage> {
+class userInfoState extends State<userInfo> {
+  String _name = "";
+
+  userInfoState(String name) {
+    _name = name;
+  }
+
   navigateToLogin(BuildContext context) {
     // Navigator.of(context).push(MaterialPageRoute(builder: (context) => const LoginPage()));
     Navigator.of(context, rootNavigator: true).pop();
@@ -19,7 +30,7 @@ class SettingsPageState extends State<SettingsPage> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('Settings'),
+          title: Text("$_name's Information"),
           backgroundColor: Colors.grey[700],
         ),
         body: SettingsList(
@@ -29,12 +40,12 @@ class SettingsPageState extends State<SettingsPage> {
               tiles: <SettingsTile>[
                 SettingsTile.navigation(
                   leading: const Icon(Icons.person),
-                  title: const Text('Stanley'),
-                  value: const Text('stanleykim2003'),
+                  title: Text(_name),
+                  value: const Text('sample username'),
                 ),
                 SettingsTile.navigation(
-                  leading: const Icon(Icons.mobile_friendly),
-                  title: const Text('Add Friends'),
+                  leading: const Icon(Icons.travel_explore),
+                  title: const Text('Traveled Places'),
                 ),
                 SettingsTile.navigation(
                   leading: const Icon(Icons.remove),
@@ -44,11 +55,6 @@ class SettingsPageState extends State<SettingsPage> {
                   leading: const Icon(Icons.language),
                   title: const Text('Language'),
                   value: const Text('English'),
-                ),
-                SettingsTile.navigation(
-                  leading: const Icon(Icons.logout),
-                  title: const Text('Sign Out'),
-                  onPressed: navigateToLogin,
                 ),
               ],
             ),
