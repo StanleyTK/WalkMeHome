@@ -1,10 +1,10 @@
 import 'package:walkmehome/models/user.dart';
 
 class UserDAO {
-  User user =
+  static User user =
       User('Stanley', 'stanleykim2003', 'stanleykim2003@gmail.com', [], Null);
 
-  List<User> friends = [
+  static List<User> friends = [
     User('Ariq', 'LukaMagic66', 'LukaMagic66@yahoo.com', [], Null),
     User('Joshua Adith George', 'd2thefraud77', 'd2thefraud77@outlook.com', [],
         Null),

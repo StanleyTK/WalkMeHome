@@ -1,3 +1,4 @@
+import 'package:flutter/src/widgets/framework.dart';
 import 'package:walkmehome/models/path_points.dart';
 
 class User {
@@ -14,4 +15,8 @@ class User {
     _paths = routes;
     _currentRoute = currentRoute;
   }
+
+  String get name => _name;
+  String get username => _username;
+  String get email => _email;
 }
